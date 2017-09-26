@@ -5,10 +5,10 @@
    <modelVersion>4.0.0</modelVersion>
 
    <groupId>com.codecool</groupId>
-   <artifactId>nearby-elements</artifactId>
+   <artifactId>filepartreader</artifactId>
    <version>1.0-SNAPSHOT</version>
    <packaging>jar</packaging>
-   <name>Nearby elements algorithm practice</name>
+   <name>FilePartReader testing with JUnit</name>
 
    <dependency>
       <groupId>junit</groupId>
