@@ -2,43 +2,45 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-   <groupId>com.codecool</groupId>
-   <artifactId>filepartreader</artifactId>
-   <version>1.0-SNAPSHOT</version>
-   <packaging>jar</packaging>
-   <name>FilePartReader testing with JUnit</name>
+  <groupId>com.codecool</groupId>
+  <artifactId>filepartreader</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>FilePartReader testing with JUnit</name>
 
-   <dependency>
+  <dependencies>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.1</version>
       <scope>test</scope>
-   </dependency>
+    </dependency>
+  </dependencies>
 
-   <properties>
-      <version.java>1.8</version.java>
-      <version.maven.compiler.plugin>3.6.1</version.maven.compiler.plugin>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-   </properties>
-   
-   <build>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>${version.maven.compiler.plugin}</version>
-            <inherited>true</inherited>
-            <configuration>
-               <source>${version.java}</source>
-               <target>${version.java}</target>
-               <compilerArgument>-Xlint:all</compilerArgument>
-               <showWarnings>true</showWarnings>
-               <showDeprecation>true</showDeprecation>
-            </configuration>
-         </plugin>
-      </plugins>
-   </build>
+  <properties>
+    <version.java>1.8</version.java>
+    <version.maven.compiler.plugin>3.6.1</version.maven.compiler.plugin>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.maven.compiler.plugin}</version>
+        <inherited>true</inherited>
+        <configuration>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
+          <compilerArgument>-Xlint:all</compilerArgument>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
