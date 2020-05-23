@@ -48,7 +48,7 @@ public class FileWordAnalyzer {
     }
 
     public List<String> returnWordsFromLines() throws IOException {
-        String lines = filePartReader.readLines("text.txt", 2, 5);
+        String lines = filePartReader.readLines("/home/aron/Codecool/OOP/FilePartReader/filepartreader-testing-with-junit-aronpachl/src/main/resources/text.txt", 2, 5);
         String[] words = lines.split("");
         return Arrays.asList(words);
     }
