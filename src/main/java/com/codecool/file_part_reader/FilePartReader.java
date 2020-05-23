@@ -1,7 +1,6 @@
 package com.codecool.file_part_reader;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,11 +13,6 @@ public class FilePartReader {
 
         if (fromLine < 1) throw new IllegalArgumentException("fromLine can't be lower than 1");
 
-        ArrayList<String> file = read(filePath);
-
-        String result = readLines(file, fromLine, toLine);
-
-        System.out.println(result);
     }
 
     public ArrayList<String> read(String filePath){
@@ -41,8 +35,10 @@ public class FilePartReader {
 
     }
 
-    public String readLines(ArrayList<String> file, int fromLine, int toLine){
+    public String readLines(String filePath, int fromLine, int toLine){
         StringBuilder result = new StringBuilder();
+        ArrayList<String> file = read(filePath);
+
         for (int line = fromLine; line < toLine; line++ ){
             result.append(file.get(line));
         }
