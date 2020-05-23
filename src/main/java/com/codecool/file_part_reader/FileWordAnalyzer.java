@@ -1,5 +1,6 @@
 package com.codecool.file_part_reader;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,14 +14,14 @@ public class FileWordAnalyzer {
         this.filePartReader = filePartReader;
     }
 
-    public List<String> getWordsOrderedAlphabetically(){
+    public List<String> getWordsOrderedAlphabetically() throws IOException {
         List<String> wordsList = returnWordsFromLines();
         Collections.sort(wordsList);
         return wordsList;
     }
 
 
-    public List<String> getWordsContainingSubstring(String subString){
+    public List<String> getWordsContainingSubstring(String subString) throws IOException {
         List<String> wordsList = returnWordsFromLines();
         List<String> result = new ArrayList<>();
         for(String word : wordsList){
@@ -31,7 +32,7 @@ public class FileWordAnalyzer {
         return result;
     }
 
-    public List<String> getStringsWhichPalindromes(){
+    public List<String> getStringsWhichPalindromes() throws IOException {
         List<String> wordsList = returnWordsFromLines();
         List<String> result = new ArrayList<>();
         for(String word : wordsList){
@@ -46,7 +47,7 @@ public class FileWordAnalyzer {
         return result;
     }
 
-    public List<String> returnWordsFromLines(){
+    public List<String> returnWordsFromLines() throws IOException {
         String lines = filePartReader.readLines("text.txt", 2, 5);
         String[] words = lines.split("");
         return Arrays.asList(words);

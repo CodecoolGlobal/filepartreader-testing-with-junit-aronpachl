@@ -15,7 +15,7 @@ public class FilePartReader {
 
     }
 
-    public ArrayList<String> read(String filePath){
+    public ArrayList<String> read(String filePath) throws IOException {
         ArrayList<String> records = new ArrayList<String>();
         try
         {
@@ -28,14 +28,13 @@ public class FilePartReader {
             reader.close();
             return records;
         } catch (IOException e) {
-            System.err.format("file not found" + e);
-            return null;
+            throw  new IOException("file not found!");
         }
 
 
     }
 
-    public String readLines(String filePath, int fromLine, int toLine){
+    public String readLines(String filePath, int fromLine, int toLine) throws IOException {
         StringBuilder result = new StringBuilder();
         ArrayList<String> file = read(filePath);
 
