@@ -15,29 +15,48 @@ class FileWordAnalyzerTest {
 
     @Test
     public void testIsWordsAreOrdered() throws IOException {
+        ArrayList<String> predictedResult = new ArrayList<>();
+        predictedResult.add("am");
+        predictedResult.add("carrot");
+        predictedResult.add("heeh");
+        predictedResult.add("i");
+        predictedResult.add("tomato");
+
         FilePartReader filePartReader = new FilePartReader();
-        String readLines = filePartReader.readLines("/home/aron/Codecool/OOP/FilePartReader/filepartreader-testing-with-junit-aronpachl/src/main/resources/text.txt", 2, 5);
-        List<String> readLinesList = Collections.singletonList(readLines);
-        Collections.sort(readLinesList);
+        filePartReader.setup("src/main/resources/text.txt", 1, 6);
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
 
-        List<String> ordered =  fileWordAnalyzer.getWordsOrderedAlphabetically();
+        ArrayList<String> ordered =  fileWordAnalyzer.getWordsOrderedAlphabetically();
 
-        assertSame(readLinesList, ordered);
+        assertEquals(predictedResult, ordered);
 
     }
 
     @Test
     public void testIsContainingSubstring() throws IOException {
         FilePartReader filePartReader = new FilePartReader();
+        filePartReader.setup("src/main/resources/text.txt", 1, 6);
         List<String> contains = new ArrayList<>();
         contains.add("carrot");
 
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
-        List<String> carrot = fileWordAnalyzer.getWordsContainingSubstring("carrot");
+        ArrayList<String> carrot = fileWordAnalyzer.getWordsContainingSubstring("carrot");
 
-        assertSame(contains, carrot);
+        assertEquals(contains, carrot);
 
+    }
+
+    @Test
+    public void testIsPalindromesCorrect() throws IOException {
+        FilePartReader filePartReader = new FilePartReader();
+        filePartReader.setup("src/main/resources/text.txt", 1, 6);
+        List<String> contains = new ArrayList<>();
+        contains.add("heeh");
+        contains.add("i");
+        FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(filePartReader);
+        ArrayList<String> result = fileWordAnalyzer.getStringsWhichPalindromes();
+
+        assertEquals(contains, result);
     }
 
 }
