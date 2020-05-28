@@ -9,47 +9,41 @@ import java.util.List;
 public class FileWordAnalyzer {
 
     FilePartReader filePartReader;
+    List<String> textList;
 
-    public FileWordAnalyzer(FilePartReader filePartReader) {
+    public FileWordAnalyzer(FilePartReader filePartReader) throws IOException {
         this.filePartReader = filePartReader;
+        textList = Arrays.asList(filePartReader.readLines().split(" "));
     }
 
-    public List<String> getWordsOrderedAlphabetically() throws IOException {
-        List<String> wordsList = returnWordsFromLines();
-        Collections.sort(wordsList);
-        return wordsList;
+    public ArrayList<String> getWordsOrderedAlphabetically() {
+        Collections.sort(textList);
+        return new ArrayList<>(textList);
     }
 
 
-    public List<String> getWordsContainingSubstring(String subString) throws IOException {
-        List<String> wordsList = returnWordsFromLines();
-        List<String> result = new ArrayList<>();
-        for(String word : wordsList){
+    public List<String> getWordsContainingSubstring(String subString) {
+        ArrayList<String> resultWords = new ArrayList<>();
+        for(String word : textList){
             if (word.contains(subString)){
-                result.add(word);
+                resultWords.add(word);
             }
         }
-        return result;
+        return resultWords;
     }
 
-    public List<String> getStringsWhichPalindromes() throws IOException {
-        List<String> wordsList = returnWordsFromLines();
-        List<String> result = new ArrayList<>();
-        for(String word : wordsList){
-            String reversed = "";
+    public ArrayList<String> getStringsWhichPalindromes() throws IOException {
+        ArrayList<String> resultWords = new ArrayList<>();
+        for(String word : textList){
+            StringBuilder reversed = new StringBuilder();
             for(int i = word.length() -1; i >= 0; i--){
-                reversed = reversed + word.charAt(i);
+                reversed.append(word.charAt(i));
             }
-            if(word.equals(reversed)){
-                result.add(word);
+            if(word.equals(reversed.toString())){
+                resultWords.add(word);
             }
         }
-        return result;
+        return resultWords;
     }
 
-    public List<String> returnWordsFromLines() throws IOException {
-        String lines = filePartReader.readLines("/home/aron/Codecool/OOP/FilePartReader/filepartreader-testing-with-junit-aronpachl/src/main/resources/text.txt", 2, 5);
-        String[] words = lines.split("");
-        return Arrays.asList(words);
-    }
 }
