@@ -22,7 +22,7 @@ public class FileWordAnalyzer {
     }
 
 
-    public List<String> getWordsContainingSubstring(String subString) {
+    public ArrayList<String> getWordsContainingSubstring(String subString) {
         ArrayList<String> resultWords = new ArrayList<>();
         for(String word : textList){
             if (word.contains(subString)){
